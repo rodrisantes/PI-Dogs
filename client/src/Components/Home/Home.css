@@ -1,30 +1,28 @@
 .divgral{
-    width: 100%;
-    height:100%;
-  margin:0;
  
-  /* //background-image: url("../../images/patern4.jpg"); */
-  background-repeat: repeat;
-  background-position:initial;
- 
-
-  position: absolute;
- 
-   /* opacity: 0.6; */
+  background-image: url("../../Assets/istockphoto-1169439839-612x612.jpg"); 
+  height: 100vh;
+  background-size: cover;
+width: 100%;
+  
 }
+.Loading{
+background-position: center;
+text-align: center;
+width: 300px;
 
+
+}
 .nav{
   width: 96%;
   margin: 0 auto;
   padding: 5px;
   display: flex;
   flex-direction:row;
-  /* flex-wrap: row wrap; */
   border: 2px solid crimson;
   border-radius: 30px;
 
   background-color: rgb(189, 182, 182);
-  /* font-weight: bold; */
  justify-content: space-between;
  align-items: flex-start;
  align-content: center;
@@ -69,19 +67,7 @@ background-color: #4cda3c;
     text-decoration: none;
 }
 
-.navIzq{
-    display: flex;
-    flex-direction:row;
-    justify-content: left;
-    justify-content: space-between;
-}
-.navDer{
 
-    display: flex;
-    flex-direction:row;
-    justify-content: right;
-    justify-content: space-between;
-}
 
 .options{
     background-color: rgb(16, 14, 14);
@@ -102,11 +88,10 @@ background-color: #4cda3c;
 
 
 .nroPag{
+    margin-top: 50px;
     font: bold 25px Arial, Helvetica;
-    color: rgb(67, 220, 20);
-    background-color: rgb(172, 167, 167);
-    border: 1px solid yellow;
-    border-radius: 50%;
+    color: rgb(12, 12, 12);
+    border-radius: 10%;
     padding: 10px;
     text-align:center;
     margin-left: 46%; 
@@ -115,8 +100,4 @@ background-color: #4cda3c;
    
 } 
 
-.temps{
-    font: bold 25px Arial, Helvetica;
 
-
-}

@@ -12,6 +12,10 @@
 .background {
     background-size: 100%;
     padding: 240px;
+    background-image: url("../../Assets/istockphoto-1169439839-612x612.jpg"); 
+    height: 100vh;
+    background-repeat: repeat-y;
+    background-repeat: repeat-x
 }
 
 .label {

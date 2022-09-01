@@ -1,45 +1,40 @@
+.completa{
 
+    background-image: url("../../Assets/istockphoto-1169439839-612x612.jpg"); 
+  background-size: cover;
+    height: 100vh;
+    background-repeat: repeat-y;
+    background-repeat: repeat-x
+
+}
 
 .boton{
-    width: 150px;
-    color:#fffaff;
-    border-radius: 15;
-    background-color: #e1b693;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    cursor: pointer;
-    margin-left: 45%; 
-    border-radius: 15px;
-    font-size: 40px;
-    box-shadow: 0px 0px 5px 5px #93b7e1;
+  
+text-decoration: none;
+margin: 100px;
+margin-left: 700px;
+height: 30px;
+color: white;
+font: bold 14px Arial, Helvetica;
+font-size: 15px;
+size: 200px;
+
+background-color: #4cda3c;
+    background-image: linear-gradient(#e45149, #b42b19);
+    border-radius: 8px;
+    text-shadow: 0 2px 0 rgba(32, 30, 30, 0.8); 
+    box-shadow: 0 1px 0 rgba(255, 255)
+
 }
-.boton:hover {background-color: #3e8e41}
 
-
+.boton:hover {
+    background-color: #41bb3b;
+    background-image: linear-gradient(#1f8308, #3bbb6e);
+   
+}
 .title{
-    color:rgb(87, 136, 226);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    box-shadow: inset;
-    border-color: aliceblue;
-    margin-left: 100px;
-    margin-top: 50px;
-    background: white;
-    font-size: 40px;
+font-size: x-large;
 
-} 
-#justificado{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 5%;
+font: bold 14px Arial, Helvetica;
+
 }
-
-
-.cargando {
-    display: flex;
-    flex-wrap: wrap;
-    background-repeat: no-repeat;
-    width: 4000px;
-    height: 400px;
-    margin-right:150px;
-} 
-

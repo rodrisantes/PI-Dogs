@@ -7,11 +7,11 @@ export function getDogs() {
       var json = await axios.get("http://localhost:3001/dogs"); 
 
       return dispatch({
-        type: "GET-DOGS",
+        type: "GET_DOGS",
         payload: json.data,
       });
     } catch (error) {
-      console.log("No se pudieron obtener las razas", error);
+      console.log("Breeds not found", error);
     }
   };
 }
@@ -21,11 +21,11 @@ export function getTemperaments() {
     try {
       var json = await axios.get("http://localhost:3001/temperament");
       return dispatch({
-        type: "GET-TEMPERAMENT",
+        type: "GET_TEMPERAMENT",
         payload: json.data,
       });
     } catch (error) {
-      console.log("No se pudieron obtener los temperamentos", error);
+      console.log("Temperaments not found", error);
     }
   };
 }
@@ -36,12 +36,12 @@ export function getDogsByName(name) {
       var json = await axios.get("http://localhost:3001/dogs?name=" + name);
       
         return dispatch({
-          type: "GET-NAME-DOGS",
+          type: "GET_NAME_DOGS",
           payload: json.data,
         });
     
     } catch (error) {
-      console.log("No se pudo obtener la query", error);
+      console.log("Name not found", error);
 
     }
   };
@@ -53,7 +53,7 @@ export function postDog(payload){
       
       var json = await axios.post("http://localhost:3001/dog", payload); 
       return dispatch({
-        type: "POST-DOG",
+        type: "POST_DOG",
         payload: json.data,
       });
   };
@@ -66,11 +66,11 @@ export function getDogDetail(id){
       var json = await axios.get("http://localhost:3001/dogs/" + id);
 
       return dispatch({
-        type: "GET-DOG-DETAIL-ID",
+        type: "GET_DOG_DETAIL_ID",
         payload: json.data,
       });
     } catch (error) {
-      console.log("No se pudo obtener datos de la raza", error);
+      console.log("Breed detail not found", error);
     }
   };
 }
@@ -78,7 +78,7 @@ export function getDogDetail(id){
 
 export function filterByTemperament(payload) {
   return {
-    type: "FILTER-BY-TEMP",
+    type: "FILTER_BY_TEMP",
     payload,
   };
 }
@@ -86,7 +86,7 @@ export function filterByTemperament(payload) {
 
 export function filterByCreated(payload) {
   return {
-    type: "FILTER-BY-CREATED",
+    type: "FILTER_BY_CREATED",
     payload,
   };
 }
@@ -94,7 +94,7 @@ export function filterByCreated(payload) {
 
 export function orderByName(payload) {
   return {
-    type: "ORDER-BY-NAME",
+    type: "ORDER_BY_NAME",
     payload,
   };
 }
@@ -102,7 +102,7 @@ export function orderByName(payload) {
 
 export function orderByWeight(payload) {
   return {
-    type: "ORDER-BY-WEIGHT",
+    type: "ORDER_BY_WEIGHT",
     payload,
   };
 }

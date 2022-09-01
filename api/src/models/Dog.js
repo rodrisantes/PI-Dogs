@@ -11,6 +11,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         unique: true,
       },
+      
 
      weight: {
         type: DataTypes.STRING,
@@ -36,6 +37,12 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: true, 
+      },
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        primaryKey: true
       },
 
     },

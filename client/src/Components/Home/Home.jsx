@@ -1,12 +1,12 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDogs, getTemperaments, filterByTemperament, filterByCreated, orderByName, orderByWeight, } from "../../Redux/actions.js";
 import Paginado from "../Paginado/Paginado.jsx";
 import Card from "../Card/Card.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
-import Styles from "./Home.css"
-import DogDetail from "../DogDetail/DogDetail.jsx";
+import "./Home.css"
+import Loading from "../../Assets/Loading.gif"
 
 
 export default function Home() {
@@ -22,11 +22,7 @@ export default function Home() {
   const lastIndexDog = actualPage * 8;
   const firstIndexDog = lastIndexDog - 8;
   const currentDogs = breeds.slice(firstIndexDog, lastIndexDog);
-  const allIds = useSelector((state) => state.detail)
   
-  const idMaps = allIds.map(e => e.id)
-
-
   const paginado = (pageNumber) => {
     setPagActual(pageNumber);
   };
@@ -61,49 +57,40 @@ export default function Home() {
     dispatch(orderByWeight(e.target.value));
     setPagActual(1);
   }
-
- 
-
-
-
-
-  return (
+   return (
     <div className="divgral">
 
-      {/* el Nav */}
       <nav className="nav">
-        <div className="navIzq">
 
           <select className="select" name="created" onChange={(e) => handleFilterCreated(e)}>
-            <option className="options" value="All" key="3">Todas las razas</option>
-            <option className="options" value="ApiDog" key="4">Razas Existentes</option>
-            <option className="options" value="razaBD" key="5">Razas Creadas</option>
+            <option className="options" value="All" >Todas las razas</option>
+            <option className="options" value="ApiDog" >Razas Existentes</option>
+            <option className="options" value="razaBD" >Razas Creadas</option>
           </select>
 
           <select className="select" name="abcOrden" onChange={(e) => handleOrderByAlphabet(e)}>
-            <option className="options" value="all" key="0">Orden Alfabético</option>
-            <option className="options" value="asc" key="1">Ascendente A-Z</option>
-            <option className="options" value="desc" key="2">Descendente Z-A</option>
+            <option className="options" value="all" >Orden Alfabético</option>
+            <option className="options" value="asc" >Ascendente A-Z</option>
+            <option className="options" value="desc" >Descendente Z-A</option>
           </select>
 
           <select className="select" name="orderWeight" onChange={(e) => handleWeight(e)}>
-            <option className="options" value="All">Orden Peso Promedio</option>
-            <option className="options" value="min">Menor Peso Promedio</option>
-            <option className="options" value="max">Mayor Peso Promedio</option>
+            <option className="options" value="All" >Orden Peso Promedio</option>
+            <option className="options" value="min" >Peso Mínimo</option>
+            <option className="options" value="max" >Peso Máximo</option>
           </select>
 
           <select className="select" name="temps" onChange={(event) => handleFilterTemp(event)}>
-            <option  value="All" key={100}>Filtro x Temperamento</option>
+            <option  value="All">Filtro x Temperamento</option>
             {allTemps2.map((t) => (
-              <option className="temps" key={t.id} value={t.name}>
+              <option className="temps" key= {t.id} value={t.name}>
                 {t.name}
               </option>
             ))}
           </select>
-        </div>
 
         <div >
-          <NavLink className="select" to="/">Volver a Inicio</NavLink>
+          <Link className="select" to="/">Volver a Inicio</Link>
         </div>
 
         <div className="NavDer">
@@ -112,7 +99,7 @@ export default function Home() {
           </div>
 
           <div className="select">
-            <NavLink className="link" to="/dog">Crear Nueva Raza</NavLink>
+            <Link className="link" to="/dog">Crear Nueva Raza</Link>
           </div>
 
         </div>
@@ -128,29 +115,29 @@ export default function Home() {
       </div>
 
       <div className="cards">
-        {currentDogs?.map((el) => {
+        {currentDogs.length ? (currentDogs.map((el, index) => {
           return (
-            <div>
               
-              <Link to ={`/dog/${el.id}`} >
+              <Link to ={`/dog/${el.id}`} key={index}
+              >
               <button  >
               <Card
                 id={el.id}
                 name={el.name}
                 temperament={el.temperament}
-                image={el.image ? el.image : "imagen no encontrada"}
+                image={el.image ? el.image : "img not found"}
                 weight={el.weight}
+                height = {el.height}
                 />
                 </button>
                 </Link>    
 
-            </div>
-          );
-        })}
+          )
+        })) : <img className = "Loading" src = {Loading} alt="img not found"/>}
       </div>
-
-      <span className="nroPag"> Pag. {actualPage}</span>
-
+      <div >
+      <span className="nroPag">  {currentDogs.length? `Pag. ${actualPage}`: ""}</span>
+      </div>
     </div>
   );
 } 

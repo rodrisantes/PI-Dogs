@@ -10,12 +10,12 @@ router.post("/dog", async (req, res) => {
     height,
     weight,
     life_span,
-    temperaments,
+    temperament,
     image,
   } = req.body;
   console.log(req.body)
 try {
-  const ids = await Temperament.findAll({where: {name : temperaments}, attributes : ["id"] }).then((arg) => arg.map(e => e.id))
+  const ids = await Temperament.findAll({where: {name : temperament}, attributes : ["id"] }).then((arg) => arg.map(e => e.id))
 
   console.log(ids)
 
